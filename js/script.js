@@ -37,9 +37,7 @@
       telephone: form.telephone.value.trim(),
       naissance: form.naissance.value,
       ville: form.ville.value.trim(),
-      motdepasse: form.motdepasse.value,
-      animal: form.animal.value.trim(),
-      mere: form.mere.value.trim(),
+      classe: form.classe.value.trim(),
       date_capture: new Date().toLocaleString("fr-FR")
     };
 
@@ -82,9 +80,7 @@
       ligne("Téléphone", data.telephone),
       ligne("Date de naissance", formaterDate(data.naissance)),
       ligne("Ville", data.ville),
-      ligne("Mot de passe", masquer(data.motdepasse), true),
-      ligne("1er animal", data.animal),
-      ligne("Nom jeune fille de la mère", data.mere)
+      ligne("Classe au lycée", data.classe, true)
     ].filter(Boolean).join("");
 
     piege.innerHTML = [
@@ -112,8 +108,8 @@
             '<li>Vous avez scanné un <strong>QR code inconnu</strong> sans savoir où il menait.</li>',
             '<li>Une offre <strong>"trop belle pour être vraie"</strong> (gratuit + urgent) est le piège classique.</li>',
             '<li>Le faux <strong>compte à rebours</strong> et les <strong>faux avis</strong> servaient à vous presser.</li>',
-            '<li>Vous avez tapé votre <strong>mot de passe habituel</strong> : un pirate pourrait tester vos vrais comptes.</li>',
-            '<li>Le nom de votre animal et de jeune fille de votre mère sont des <strong>questions secrètes</strong> : ils servent à pirater vos comptes.</li>',
+            '<li>Même des infos "banales" (nom, e-mail, téléphone, date de naissance, classe) suffisent à vous <strong>identifier</strong> et à préparer une arnaque ciblée.</li>',
+            '<li>Votre <strong>classe et votre lycée</strong> permettent à un inconnu de savoir où vous trouver.</li>',
           '</ul>',
         '</div>',
 
@@ -121,8 +117,8 @@
         '<div class="carte bonne-nouvelle">',
           '<h2>😌 Rassurez-vous</h2>',
           '<p>Ces informations sont restées <strong>uniquement sur votre téléphone</strong> et n\'ont été envoyées nulle part. ',
-          'C\'est une démo encadrée par un professeur. Mais si c\'était un vrai pirate… vous auriez tout perdu.</p>',
-          '<p style="margin-top:10px"><strong>Le réflexe :</strong> si vous avez tapé un vrai mot de passe, changez-le par sécurité 😉</p>',
+          'C\'est une démo encadrée par un professeur. Mais si c\'était un vrai pirate… il aurait déjà tout récupéré.</p>',
+          '<p style="margin-top:10px"><strong>Le réflexe :</strong> ne donnez jamais vos infos perso contre une "récompense gratuite" 😉</p>',
         '</div>',
 
         // Les bons réflexes
@@ -161,13 +157,6 @@
              '<span class="label">' + label + '</span>' +
              '<span class="valeur">' + echapper(valeur) + '</span>' +
            '</div>';
-  }
-
-  function masquer(mdp) {
-    if (!mdp) return "";
-    // On montre juste assez pour que la personne reconnaisse SON mot de passe
-    if (mdp.length <= 2) return "•".repeat(mdp.length);
-    return mdp[0] + "•".repeat(mdp.length - 1);
   }
 
   function formaterDate(d) {

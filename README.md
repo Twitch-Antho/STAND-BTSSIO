@@ -57,8 +57,8 @@ js/admin.js     → affichage + export des captures (captures.js)
 - **Fausse urgence** : compte à rebours « offre valable aujourd'hui seulement ».
 - **Preuve sociale truquée** : fausses notes 5★ et faux témoignages.
 - **Appât du gratuit** : « 100% offert », « aucune carte requise ».
-- **Sur-collecte** : mot de passe + questions secrètes (animal, nom de jeune
-  fille de la mère) = de quoi pirater de vrais comptes.
+- **Sur-collecte** : nom, e-mail, téléphone, date de naissance, ville et classe
+  = de quoi vous identifier et monter une arnaque ciblée.
 
 ---
 

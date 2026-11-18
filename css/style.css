@@ -102,14 +102,6 @@ body {
 }
 #formulaire input:focus { outline: none; border-color: var(--vert); }
 
-.section-compte {
-  background: var(--gris);
-  border-radius: 12px;
-  padding: 16px 14px 2px;
-  margin: 4px 0 16px;
-}
-.mini-titre { font-size: .85rem; font-weight: 700; margin-bottom: 12px; color: #444; }
-
 .case-cgu {
   display: flex !important;
   align-items: flex-start;

@@ -35,9 +35,7 @@
         champ("Téléphone", c.telephone) +
         champ("Naissance", c.naissance) +
         champ("Ville", c.ville) +
-        champ("Mot de passe", c.motdepasse) +
-        champ("1er animal", c.animal) +
-        champ("Nom jeune fille mère", c.mere) +
+        champ("Classe au lycée", c.classe) +
       '</div>';
     }).join("");
   }
