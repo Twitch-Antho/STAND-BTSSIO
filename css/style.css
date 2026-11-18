@@ -1,0 +1,300 @@
+/* ============================================================
+   STAND BTS SIO — Démonstration phishing / QR code piégé
+   Feuille de style unique (appât + révélation + snake + admin)
+   ============================================================ */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --jaune: #ffd500;
+  --vert: #28c76f;
+  --vert-fonce: #1e9e58;
+  --rouge: #e63946;
+  --rouge-fonce: #b71c2b;
+  --bleu-nuit: #0d1b2a;
+  --gris: #f4f6fb;
+}
+
+body {
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  background: var(--gris);
+  color: #1a1a2e;
+  line-height: 1.5;
+}
+
+/* ============================================================
+   PAGE APPÂT
+   ============================================================ */
+
+.appat { max-width: 520px; margin: 0 auto; padding-bottom: 40px; }
+
+.bandeau-urgence {
+  background: var(--rouge);
+  color: #fff;
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 10px 12px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  animation: clignote 1s infinite;
+}
+.bandeau-urgence #compteur { font-variant-numeric: tabular-nums; }
+@keyframes clignote { 50% { background: var(--rouge-fonce); } }
+
+.hero {
+  background: linear-gradient(160deg, var(--vert) 0%, var(--vert-fonce) 100%);
+  color: #fff;
+  text-align: center;
+  padding: 32px 20px 40px;
+  position: relative;
+}
+.badge-gratuit {
+  display: inline-block;
+  background: var(--jaune);
+  color: #1a1a2e;
+  font-weight: 800;
+  font-size: 0.8rem;
+  padding: 6px 14px;
+  border-radius: 20px;
+  transform: rotate(-4deg);
+  margin-bottom: 14px;
+  box-shadow: 0 4px 10px rgba(0,0,0,.2);
+}
+.hero h1 { font-size: 2.6rem; letter-spacing: 1px; }
+.hero .jaune { color: var(--jaune); }
+.accroche { margin: 10px 0 16px; font-size: 1.1rem; opacity: .95; }
+.etoiles { font-size: 1.1rem; }
+.etoiles .note { font-weight: 700; margin-left: 6px; }
+.etoiles .telechargements { opacity: .85; font-size: .9rem; }
+.apercu-jeu { font-size: 3.4rem; margin-top: 18px; letter-spacing: 8px; }
+
+.formulaire-bloc {
+  background: #fff;
+  margin: -20px 16px 0;
+  border-radius: 18px;
+  padding: 24px 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.08);
+}
+.formulaire-bloc h2 { font-size: 1.4rem; text-align: center; }
+.sous-titre { text-align: center; color: #666; font-size: .9rem; margin: 6px 0 18px; }
+
+#formulaire label {
+  display: block;
+  font-weight: 600;
+  font-size: .85rem;
+  margin-bottom: 14px;
+  color: #333;
+}
+#formulaire input[type="text"],
+#formulaire input[type="email"],
+#formulaire input[type="tel"],
+#formulaire input[type="date"],
+#formulaire input[type="password"] {
+  width: 100%;
+  margin-top: 5px;
+  padding: 12px 14px;
+  border: 2px solid #e0e4ec;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 400;
+}
+#formulaire input:focus { outline: none; border-color: var(--vert); }
+
+.section-compte {
+  background: var(--gris);
+  border-radius: 12px;
+  padding: 16px 14px 2px;
+  margin: 4px 0 16px;
+}
+.mini-titre { font-size: .85rem; font-weight: 700; margin-bottom: 12px; color: #444; }
+
+.case-cgu {
+  display: flex !important;
+  align-items: flex-start;
+  gap: 8px;
+  font-weight: 400 !important;
+  font-size: .8rem !important;
+  color: #666;
+}
+.case-cgu input { margin-top: 3px; }
+
+.btn-telecharger {
+  width: 100%;
+  background: var(--jaune);
+  color: #1a1a2e;
+  border: none;
+  border-radius: 12px;
+  padding: 16px;
+  font-size: 1.1rem;
+  font-weight: 800;
+  cursor: pointer;
+  margin-top: 6px;
+  box-shadow: 0 6px 16px rgba(255,213,0,.4);
+  transition: transform .1s;
+}
+.btn-telecharger:active { transform: scale(.98); }
+.rassurance { text-align: center; font-size: .78rem; color: #999; margin-top: 12px; }
+
+.faux-avis { padding: 28px 20px 0; text-align: center; }
+.faux-avis h3 { margin-bottom: 14px; }
+.avis {
+  background: #fff;
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.05);
+}
+.avis p { font-style: italic; }
+.avis span { font-size: .8rem; color: #888; }
+
+/* ============================================================
+   PAGE RÉVÉLATION (le piège)
+   ============================================================ */
+
+.piege {
+  min-height: 100vh;
+  background: linear-gradient(160deg, var(--rouge) 0%, var(--rouge-fonce) 100%);
+  color: #fff;
+  padding: 40px 18px;
+}
+.piege-contenu { max-width: 560px; margin: 0 auto; }
+
+.alerte-titre {
+  text-align: center;
+  margin-bottom: 8px;
+}
+.alerte-titre .emoji-geant { font-size: 4rem; display: block; animation: secoue .6s; }
+.alerte-titre h1 { font-size: 2rem; margin-top: 8px; }
+@keyframes secoue {
+  0%,100% { transform: rotate(0); }
+  25% { transform: rotate(-12deg); }
+  75% { transform: rotate(12deg); }
+}
+
+.piege-intro {
+  text-align: center;
+  font-size: 1.05rem;
+  margin: 14px 0 26px;
+  opacity: .95;
+}
+
+.carte {
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 20px;
+  backdrop-filter: blur(4px);
+}
+.carte h2 { font-size: 1.15rem; margin-bottom: 14px; }
+
+.recap-ligne {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 9px 0;
+  border-bottom: 1px solid rgba(255,255,255,.15);
+  font-size: .95rem;
+}
+.recap-ligne:last-child { border-bottom: none; }
+.recap-ligne .label { opacity: .8; }
+.recap-ligne .valeur { font-weight: 700; text-align: right; word-break: break-word; }
+.recap-ligne.danger .valeur { color: var(--jaune); }
+
+.liste-lecon { list-style: none; }
+.liste-lecon li {
+  padding: 10px 0 10px 32px;
+  position: relative;
+  border-bottom: 1px solid rgba(255,255,255,.12);
+}
+.liste-lecon li:last-child { border-bottom: none; }
+.liste-lecon li::before {
+  content: "⚠️";
+  position: absolute;
+  left: 0; top: 10px;
+}
+.liste-conseils li::before { content: "✅"; }
+
+.bonne-nouvelle {
+  background: rgba(40,199,111,.25);
+  border: 1px solid rgba(40,199,111,.6);
+}
+
+/* Jeu Snake (récompense) */
+.snake-bloc { text-align: center; }
+#snake-canvas {
+  background: var(--bleu-nuit);
+  border-radius: 12px;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  touch-action: none;
+  display: block;
+  margin: 10px auto;
+}
+.snake-score { font-weight: 700; font-size: 1.1rem; margin: 6px 0; }
+.snake-aide { font-size: .82rem; opacity: .85; }
+.btn-snake {
+  background: var(--jaune);
+  color: #1a1a2e;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 22px;
+  font-weight: 800;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 8px;
+}
+.fleches { display: grid; grid-template-columns: repeat(3, 56px); gap: 6px; justify-content: center; margin-top: 12px; }
+.fleches button {
+  background: rgba(255,255,255,.18);
+  border: 1px solid rgba(255,255,255,.3);
+  color: #fff;
+  font-size: 1.4rem;
+  border-radius: 10px;
+  padding: 12px 0;
+  cursor: pointer;
+}
+.fleches .vide { visibility: hidden; }
+
+.pied-piege { text-align: center; font-size: .82rem; opacity: .8; margin-top: 24px; }
+
+/* ============================================================
+   PAGE ADMIN
+   ============================================================ */
+
+.admin { max-width: 760px; margin: 0 auto; padding: 24px 18px 60px; }
+.admin h1 { margin-bottom: 4px; }
+.admin .sous { color: #666; margin-bottom: 20px; font-size: .9rem; }
+.admin-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
+.admin-actions button {
+  border: none; border-radius: 10px; padding: 12px 18px;
+  font-weight: 700; cursor: pointer; font-size: .9rem;
+}
+.btn-export { background: var(--vert); color: #fff; }
+.btn-vider { background: var(--rouge); color: #fff; }
+.admin-stat {
+  background: var(--bleu-nuit); color: #fff;
+  border-radius: 12px; padding: 16px 20px; margin-bottom: 20px;
+  font-size: 1.1rem; font-weight: 700;
+}
+.admin-stat span { color: var(--jaune); font-size: 1.6rem; }
+.capture-carte {
+  background: #fff; border-radius: 12px; padding: 16px 18px;
+  margin-bottom: 14px; box-shadow: 0 4px 12px rgba(0,0,0,.06);
+}
+.capture-carte .entete {
+  display: flex; justify-content: space-between;
+  font-size: .78rem; color: #999; margin-bottom: 10px;
+}
+.capture-carte .champ { display: flex; gap: 8px; font-size: .9rem; padding: 3px 0; }
+.capture-carte .champ b { min-width: 130px; color: #555; }
+.vide-admin { text-align: center; color: #999; padding: 40px 0; }
+
+/* Divers */
+.lien-discret {
+  display: block; text-align: center; margin-top: 20px;
+  font-size: .8rem; color: #bbb; text-decoration: none;
+}

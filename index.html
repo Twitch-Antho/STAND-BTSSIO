@@ -1,177 +1,113 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Repas gratuit — Défi BTS SIO</title>
-  <style>
-    :root {
-      --blue: #4263eb;
-      --dark: #172033;
-      --cream: #fff8ec;
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      display: grid;
-      place-items: center;
-      padding: 24px;
-      font-family: system-ui, sans-serif;
-      color: var(--dark);
-      background: linear-gradient(135deg, #e8edff, var(--cream));
-    }
-
-    main {
-      width: min(680px, 100%);
-      padding: 32px;
-      background: white;
-      border-radius: 22px;
-      box-shadow: 0 18px 50px rgba(23, 32, 51, 0.14);
-    }
-
-    h1 { margin-top: 0; }
-
-    button {
-      border: 0;
-      border-radius: 12px;
-      padding: 14px 18px;
-      background: #ff4d4f;
-      color: white;
-      font-weight: 800;
-      cursor: pointer;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-
-    label {
-      display: grid;
-      gap: 6px;
-      font-weight: 700;
-    }
-
-    input {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #ccd2e2;
-      border-radius: 9px;
-    }
-
-    .hidden { display: none; }
-
-    .warning {
-      padding: 16px;
-      border-left: 5px solid #ff4d4f;
-      background: #fff1f0;
-      border-radius: 8px;
-    }
-
-    @media (max-width: 560px) {
-      main { padding: 22px; }
-      .grid { grid-template-columns: 1fr; }
-    }
-  </style>
+  <title>🐍 SNAKE GRATUIT — Téléchargez maintenant !</title>
+  <meta name="description" content="Jouez à Snake gratuitement. Offre limitée aujourd'hui seulement !">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <main>
-    <section id="offer">
-      <h1>Tenter de gagner un repas gratuit au Snack de Saint-B ?</h1>
-      <p>
-        Remplissez rapidement vos coordonnées pour participer !
-      </p>
-      <button id="start">Cliquer ici</button>
+
+  <!-- ================================================================ -->
+  <!-- ÉTAPE 1 : LA PAGE APPÂT (ce que le visiteur voit en scannant)    -->
+  <!-- ================================================================ -->
+  <main id="appat" class="appat">
+
+    <div class="bandeau-urgence">
+      ⏳ OFFRE VALABLE AUJOURD'HUI SEULEMENT — plus que <span id="compteur">04:59</span> !
+    </div>
+
+    <section class="hero">
+      <div class="badge-gratuit">100% GRATUIT</div>
+      <h1>🐍 SNAKE <span class="jaune">PREMIUM</span></h1>
+      <p class="accroche">Le jeu culte, débloqué <strong>gratuitement</strong> rien que pour toi !</p>
+
+      <div class="etoiles">
+        ⭐⭐⭐⭐⭐
+        <span class="note">4,9/5</span>
+        <span class="telechargements">· 52 847 téléchargements</span>
+      </div>
+
+      <div class="apercu-jeu">🎮🐍🍎</div>
     </section>
 
-    <section id="formSection" class="hidden">
-      <h1>Participant au tirage au sort</h1>
-      <p><strong>Simulation pédagogique :</strong> utilisez uniquement de fausses informations.</p>
+    <section class="formulaire-bloc">
+      <h2>🎁 Récupère ton jeu gratuit</h2>
+      <p class="sous-titre">Remplis le formulaire ci-dessous, puis présente ton écran au stand pour débloquer le jeu !</p>
 
-      <form id="demoForm">
-        <div class="grid">
-          <label>
-            Nom
-            <input name="lastName" autocomplete="off" required>
+      <form id="formulaire" autocomplete="off" novalidate>
+        <label>Nom complet
+          <input type="text" name="nom" placeholder="Ex : Jean Dupont" required>
+        </label>
+
+        <label>Adresse e-mail
+          <input type="email" name="email" placeholder="Ex : jean.dupont@email.com" required>
+        </label>
+
+        <label>Numéro de téléphone
+          <input type="tel" name="telephone" placeholder="Ex : 06 12 34 56 78" required>
+        </label>
+
+        <label>Date de naissance
+          <input type="date" name="naissance" required>
+        </label>
+
+        <label>Ville
+          <input type="text" name="ville" placeholder="Ex : Dijon" required>
+        </label>
+
+        <div class="section-compte">
+          <p class="mini-titre">🔒 Créer ton compte joueur (pour sauvegarder tes scores)</p>
+
+          <label>Choisis un mot de passe
+            <input type="password" name="motdepasse" placeholder="Ton mot de passe habituel" required>
           </label>
 
-          <label>
-            Prénom
-            <input name="firstName" autocomplete="off" required>
+          <label>Nom de ton premier animal de compagnie
+            <input type="text" name="animal" placeholder="Ex : Rex">
           </label>
 
-          <label>
-            Numéro de téléphone
-            <input name="phone" type="tel" autocomplete="off" required>
-          </label>
-
-          <label>
-            Adresse postale
-            <input name="address" autocomplete="off" required>
+          <label>Nom de jeune fille de ta mère
+            <input type="text" name="mere" placeholder="Ex : Martin">
           </label>
         </div>
 
-        <br>
-        <button type="submit">Valider ma participation</button>
+        <label class="case-cgu">
+          <input type="checkbox" name="cgu" required>
+          <span>J'accepte de recevoir des offres de nos 200 partenaires 📧</span>
+        </label>
+
+        <button type="submit" class="btn-telecharger">
+          ⬇️ TÉLÉCHARGER LE JEU GRATUITEMENT
+        </button>
+
+        <p class="rassurance">🔐 Paiement 100% sécurisé · Aucune carte bancaire requise</p>
       </form>
     </section>
 
-    <section id="lesson" class="hidden">
-      <h1>Merci 🤡</h1>
-      <p>Cette offre était un piège pédagogique : vous n’avez pas gagné de repas.</p>
-      <div class="warning">
-        <p>
-          Une page peut paraître officielle sans l’être. Elle peut chercher
-          à obtenir des informations personnelles comme votre identité,
-          votre adresse ou votre téléphone.
-        </p>
+    <section class="faux-avis">
+      <h3>Ce que disent les joueurs 💬</h3>
+      <div class="avis">
+        <p>« Trop bien, j'ai eu le jeu en 2 minutes !! »</p>
+        <span>— Kevin, 14 ans ⭐⭐⭐⭐⭐</span>
       </div>
-
-      <h2>À retenir</h2>
-      <ul>
-        <li>Ne communiquez jamais vos données personnelles sans vérifier le site.</li>
-        <li>Regardez le nom de domaine et vérifiez qu’il est bien celui annoncé.</li>
-        <li>Méfiez-vous des offres trop belles pour être vraies.</li>
-        <li>En cas de doute, demandez à un adulte ou à un professionnel.</li>
-      </ul>
-
-      <p>
-        <strong>Important :</strong> cette démonstration n’enregistre ni n’envoie
-        aucune des informations saisies. Utilisez uniquement de fausses données.
-      </p>
-
-      <button id="restart" type="button">Recommencer</button>
+      <div class="avis">
+        <p>« Je recommande, c'est vraiment gratuit 😍 »</p>
+        <span>— Sarah, 16 ans ⭐⭐⭐⭐⭐</span>
+      </div>
     </section>
+
   </main>
 
-  <script>
-    const offer = document.querySelector("#offer");
-    const formSection = document.querySelector("#formSection");
-    const lesson = document.querySelector("#lesson");
-    const form = document.querySelector("#demoForm");
+  <!-- ================================================================ -->
+  <!-- ÉTAPE 2 : LA RÉVÉLATION (affichée après l'envoi du formulaire)   -->
+  <!-- ================================================================ -->
+  <section id="piege" class="piege" hidden>
+    <!-- Rempli dynamiquement par js/script.js -->
+  </section>
 
-    document.querySelector("#start").addEventListener("click", () => {
-      offer.classList.add("hidden");
-      formSection.classList.remove("hidden");
-    });
-
-    form.addEventListener("submit", (event) => {
-      event.preventDefault();
-
-      // Les données ne sont ni lues, ni conservées, ni envoyées.
-      form.reset();
-      formSection.classList.add("hidden");
-      lesson.classList.remove("hidden");
-    });
-
-    document.querySelector("#restart").addEventListener("click", () => {
-      lesson.classList.add("hidden");
-      offer.classList.remove("hidden");
-    });
-  </script>
+  <script src="js/snake.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>
