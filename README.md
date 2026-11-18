@@ -1,4 +1,4 @@
-# 🐍 STAND BTS SIO — Démo phishing « SNAKE GRATUIT »
+# 🍽️ STAND BTS SIO — Démo phishing « Repas gratuit au Petit Saint-B »
 
 Mini-site web de **sensibilisation à l'ingénierie sociale** pour un stand du
 **Forum des Métiers du Numérique** (BTS SIO – SISR, Lycée Saint-Bénigne, Dijon).
@@ -8,13 +8,13 @@ Mini-site web de **sensibilisation à l'ingénierie sociale** pour un stand du
 
 ## 🎯 Le principe
 
-1. Un **QR code** affiché devant le stand annonce « **SNAKE GRATUIT** ».
-2. Le visiteur scanne et arrive sur ce site : une offre de jeu « trop belle »
-   avec un **formulaire d'infos personnelles** à remplir.
+1. Un **QR code** affiché devant le stand annonce « **REPAS GRATUIT** » au
+   restaurant du lycée, *Le Petit Saint-B*.
+2. Le visiteur scanne et arrive sur ce site : une offre « trop belle » avec un
+   **formulaire d'infos personnelles** à remplir pour « réserver » son repas.
 3. Dès qu'il valide, le site révèle le piège : **« Vous venez de vous faire
    piéger ! »**, lui montre ce qu'il vient de donner à un inconnu, et explique
    les bons réflexes.
-4. En récompense d'être allé au bout, il reçoit… un **vrai jeu Snake** jouable 🐍.
 
 C'est une démonstration classique de **phishing / quishing** (hameçonnage par QR code).
 
@@ -32,14 +32,13 @@ index.html      → page appât + formulaire + écran de révélation
 admin.html      → page équipe : voir les captures + exporter en .js
 css/style.css   → tout le style
 js/script.js    → faux compte à rebours, capture, révélation du piège
-js/snake.js     → le vrai jeu Snake (récompense)
 js/admin.js     → affichage + export des captures (captures.js)
 ```
 
 ## 🕹️ Utilisation au stand
 
 1. Héberger le site (voir ci-dessous) et générer un **QR code** pointant vers
-   l'URL, avec la légende « SNAKE GRATUIT ».
+   l'URL, avec la légende « REPAS GRATUIT ».
 2. Le visiteur scanne avec **son propre téléphone** → la révélation s'affiche
    sur son écran, vous commentez ensemble.
 3. Option : sur une **tablette partagée** du stand, la page `admin.html` liste
@@ -57,7 +56,7 @@ js/admin.js     → affichage + export des captures (captures.js)
 
 - **Fausse urgence** : compte à rebours « offre valable aujourd'hui seulement ».
 - **Preuve sociale truquée** : fausses notes 5★ et faux témoignages.
-- **Appât du gratuit** : « 100% gratuit », « aucune carte requise ».
+- **Appât du gratuit** : « 100% offert », « aucune carte requise ».
 - **Sur-collecte** : mot de passe + questions secrètes (animal, nom de jeune
   fille de la mère) = de quoi pirater de vrais comptes.
 

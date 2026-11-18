@@ -7,8 +7,8 @@
 
 :root {
   --jaune: #ffd500;
-  --vert: #28c76f;
-  --vert-fonce: #1e9e58;
+  --vert: #ff7a18;        /* accent chaud (appétissant) */
+  --vert-fonce: #e8590c;
   --rouge: #e63946;
   --rouge-fonce: #b71c2b;
   --bleu-nuit: #0d1b2a;
@@ -221,43 +221,6 @@ body {
   background: rgba(40,199,111,.25);
   border: 1px solid rgba(40,199,111,.6);
 }
-
-/* Jeu Snake (récompense) */
-.snake-bloc { text-align: center; }
-#snake-canvas {
-  background: var(--bleu-nuit);
-  border-radius: 12px;
-  width: 100%;
-  max-width: 300px;
-  height: auto;
-  touch-action: none;
-  display: block;
-  margin: 10px auto;
-}
-.snake-score { font-weight: 700; font-size: 1.1rem; margin: 6px 0; }
-.snake-aide { font-size: .82rem; opacity: .85; }
-.btn-snake {
-  background: var(--jaune);
-  color: #1a1a2e;
-  border: none;
-  border-radius: 10px;
-  padding: 12px 22px;
-  font-weight: 800;
-  font-size: 1rem;
-  cursor: pointer;
-  margin-top: 8px;
-}
-.fleches { display: grid; grid-template-columns: repeat(3, 56px); gap: 6px; justify-content: center; margin-top: 12px; }
-.fleches button {
-  background: rgba(255,255,255,.18);
-  border: 1px solid rgba(255,255,255,.3);
-  color: #fff;
-  font-size: 1.4rem;
-  border-radius: 10px;
-  padding: 12px 0;
-  cursor: pointer;
-}
-.fleches .vide { visibility: hidden; }
 
 .pied-piege { text-align: center; font-size: .82rem; opacity: .8; margin-top: 24px; }
 

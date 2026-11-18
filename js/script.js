@@ -95,7 +95,7 @@
           '<h1>Vous venez de vous faire piéger !</h1>',
         '</div>',
 
-        '<p class="piege-intro">Il n\'y a pas de "Snake Premium gratuit". Ce stand est une démonstration ',
+        '<p class="piege-intro">Il n\'y a pas de "repas gratuit au Petit Saint-B". Ce stand est une démonstration ',
         'du <strong>BTS SIO</strong> sur le <strong>phishing</strong> et le <strong>QR code piégé</strong> (quishing). ',
         'Venez nous voir au stand, on vous explique tout !</p>',
 
@@ -137,21 +137,11 @@
           '</ul>',
         '</div>',
 
-        // Récompense : le vrai jeu
-        '<div class="carte snake-bloc">',
-          '<h2>🎮 Allez, un vrai Snake pour la route !</h2>',
-          '<p class="snake-aide">Bien joué d\'être venu·e jusqu\'ici. Voici un vrai Snake, cadeau 🐍</p>',
-          '<div class="snake-score">Score : <span id="snake-score">0</span></div>',
-          '<canvas id="snake-canvas" width="300" height="300"></canvas>',
-          '<button class="btn-snake" id="snake-start">▶️ Jouer</button>',
-          '<div class="fleches">',
-            '<span class="vide"></span>',
-            '<button data-dir="up" aria-label="haut">⬆️</button>',
-            '<span class="vide"></span>',
-            '<button data-dir="left" aria-label="gauche">⬅️</button>',
-            '<button data-dir="down" aria-label="bas">⬇️</button>',
-            '<button data-dir="right" aria-label="droite">➡️</button>',
-          '</div>',
+        // Clôture
+        '<div class="carte bonne-nouvelle snake-bloc">',
+          '<h2>👏 Bien joué d\'avoir lu jusqu\'ici</h2>',
+          '<p>Passez nous voir au stand : on vous explique comment repérer ces pièges au quotidien. ',
+          'Vous saurez désormais flairer l\'arnaque 😉</p>',
         '</div>',
 
         '<p class="pied-piege">Démonstration pédagogique · BTS SIO (SISR) · Lycée Saint-Bénigne, Dijon<br>',
@@ -162,9 +152,6 @@
 
     piege.hidden = false;
     window.scrollTo(0, 0);
-
-    // Démarrage du jeu Snake (défini dans snake.js)
-    if (typeof initSnake === "function") initSnake();
   }
 
   /* ---------- Petites fonctions utilitaires ---------- */
