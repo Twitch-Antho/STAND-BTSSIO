@@ -90,7 +90,7 @@
 
     <section id="formSection" class="hidden">
       <h1>Participant au tirage au sort</h1>
-      <p><strong>Simulation pédagogique :</strong> utilisez de fausses informations.</p>
+      <p><strong>Simulation pédagogique :</strong> utilisez uniquement de fausses informations.</p>
 
       <form id="demoForm">
         <div class="grid">
@@ -121,7 +121,8 @@
     </section>
 
     <section id="lesson" class="hidden">
-      <h1>Vous venez de tomber dans un piège !</h1>
+      <h1>Merci 🤡</h1>
+      <p>Cette offre était un piège pédagogique : vous n’avez pas gagné de repas.</p>
       <div class="warning">
         <p>
           Une page peut paraître officielle sans l’être. Elle peut chercher
@@ -139,8 +140,8 @@
       </ul>
 
       <p>
-        <strong>Important :</strong> aucune donnée saisie sur cette page n’a été
-        enregistrée ou envoyée.
+        <strong>Important :</strong> cette démonstration n’enregistre ni n’envoie
+        aucune des informations saisies. Utilisez uniquement de fausses données.
       </p>
 
       <button id="restart" type="button">Recommencer</button>
@@ -159,9 +160,9 @@
     });
 
     form.addEventListener("submit", (event) => {
-      event.preventEvent();
+      event.preventDefault();
 
-      // Aucune donnée n'est lue, envoyée ou enregistrée.
+      // Les données ne sont ni lues, ni conservées, ni envoyées.
       form.reset();
       formSection.classList.add("hidden");
       lesson.classList.remove("hidden");
