@@ -1,12 +1,12 @@
 # 🍽️ STAND BTS SIO — Démo phishing « Repas gratuit au Petit Saint-B »
 
-Mini-site web de **sensibilisation à l'ingénierie sociale** pour un stand du
+Mini-site web de **sensibilisation aux jeunes** pour un stand du
 **Forum des Métiers du Numérique** (BTS SIO – SISR, Lycée Saint-Bénigne, Dijon).
 
 > ⚠️ **Projet pédagogique encadré par un professeur.** Le but est d'éduquer, pas
 > de nuire : aucune donnée n'est envoyée sur Internet.
 
-## 🎯 Le principe
+## 🎯 Le but ???
 
 1. Un **QR code** affiché devant le stand annonce « **REPAS GRATUIT** » au
    restaurant du lycée, *Le Petit Saint-B*.
