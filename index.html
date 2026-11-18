@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Repas gratuit — Défi BTS SIO</title>
+  <style>
+    :root {
+      --blue: #4263eb;
+      --dark: #172033;
+      --cream: #fff8ec;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      font-family: system-ui, sans-serif;
+      color: var(--dark);
+      background: linear-gradient(135deg, #e8edff, var(--cream));
+    }
+
+    main {
+      width: min(680px, 100%);
+      padding: 32px;
+      background: white;
+      border-radius: 22px;
+      box-shadow: 0 18px 50px rgba(23, 32, 51, 0.14);
+    }
+
+    h1 { margin-top: 0; }
+
+    button {
+      border: 0;
+      border-radius: 12px;
+      padding: 14px 18px;
+      background: #ff4d4f;
+      color: white;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    label {
+      display: grid;
+      gap: 6px;
+      font-weight: 700;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccd2e2;
+      border-radius: 9px;
+    }
+
+    .hidden { display: none; }
+
+    .warning {
+      padding: 16px;
+      border-left: 5px solid #ff4d4f;
+      background: #fff1f0;
+      border-radius: 8px;
+    }
+
+    @media (max-width: 560px) {
+      main { padding: 22px; }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section id="offer">
+      <h1>Tenter de gagner un repas gratuit au Snack de Saint-B ?</h1>
+      <p>
+        Remplissez rapidement vos coordonnées pour participer !
+      </p>
+      <button id="start">Cliquer ici</button>
+    </section>
+
+    <section id="formSection" class="hidden">
+      <h1>Participant au tirage au sort</h1>
+      <p><strong>Simulation pédagogique :</strong> utilisez de fausses informations.</p>
+
+      <form id="demoForm">
+        <div class="grid">
+          <label>
+            Nom
+            <input name="lastName" autocomplete="off" required>
+          </label>
+
+          <label>
+            Prénom
+            <input name="firstName" autocomplete="off" required>
+          </label>
+
+          <label>
+            Numéro de téléphone
+            <input name="phone" type="tel" autocomplete="off" required>
+          </label>
+
+          <label>
+            Adresse postale
+            <input name="address" autocomplete="off" required>
+          </label>
+        </div>
+
+        <br>
+        <button type="submit">Valider ma participation</button>
+      </form>
+    </section>
+
+    <section id="lesson" class="hidden">
+      <h1>Vous venez de tomber dans un piège !</h1>
+      <div class="warning">
+        <p>
+          Une page peut paraître officielle sans l’être. Elle peut chercher
+          à obtenir des informations personnelles comme votre identité,
+          votre adresse ou votre téléphone.
+        </p>
+      </div>
+
+      <h2>À retenir</h2>
+      <ul>
+        <li>Ne communiquez jamais vos données personnelles sans vérifier le site.</li>
+        <li>Regardez le nom de domaine et vérifiez qu’il est bien celui annoncé.</li>
+        <li>Méfiez-vous des offres trop belles pour être vraies.</li>
+        <li>En cas de doute, demandez à un adulte ou à un professionnel.</li>
+      </ul>
+
+      <p>
+        <strong>Important :</strong> aucune donnée saisie sur cette page n’a été
+        enregistrée ou envoyée.
+      </p>
+
+      <button id="restart" type="button">Recommencer</button>
+    </section>
+  </main>
+
+  <script>
+    const offer = document.querySelector("#offer");
+    const formSection = document.querySelector("#formSection");
+    const lesson = document.querySelector("#lesson");
+    const form = document.querySelector("#demoForm");
+
+    document.querySelector("#start").addEventListener("click", () => {
+      offer.classList.add("hidden");
+      formSection.classList.remove("hidden");
+    });
+
+    form.addEventListener("submit", (event) => {
+      event.preventEvent();
+
+      // Aucune donnée n'est lue, envoyée ou enregistrée.
+      form.reset();
+      formSection.classList.add("hidden");
+      lesson.classList.remove("hidden");
+    });
+
+    document.querySelector("#restart").addEventListener("click", () => {
+      lesson.classList.add("hidden");
+      offer.classList.remove("hidden");
+    });
+  </script>
+</body>
+</html>
