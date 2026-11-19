@@ -48,8 +48,23 @@
     }
 
     enregistrerCapture(data);
+    incrementerCompteur();
     afficherPiege(data);
   });
+
+  /* ---------- Compteur de personnes piégées ----------
+     Variable persistante incrémentée à CHAQUE inscription.
+     Elle n'est pas remise à zéro quand on vide la liste des captures :
+     c'est le total cumulé depuis le début. */
+  function incrementerCompteur() {
+    var n = parseInt(localStorage.getItem("compteur_pieges") || "0", 10);
+    if (isNaN(n)) n = 0;
+    try {
+      localStorage.setItem("compteur_pieges", String(n + 1));
+    } catch (err) {
+      // localStorage indisponible : pas grave pour la démo
+    }
+  }
 
   /* ---------- Enregistrement local (= le "fichier JS") ---------- */
   function enregistrerCapture(data) {

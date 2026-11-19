@@ -41,6 +41,11 @@
     var captures = charger();
     document.getElementById("total").textContent = captures.length;
 
+    // Variable compteur : total cumulé de personnes piégées
+    var compteur = parseInt(localStorage.getItem("compteur_pieges") || "0", 10);
+    if (isNaN(compteur)) compteur = 0;
+    document.getElementById("compteur-total").textContent = compteur;
+
     var liste = document.getElementById("liste");
 
     if (captures.length === 0) {

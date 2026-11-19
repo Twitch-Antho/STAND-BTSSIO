@@ -305,6 +305,13 @@ body {
   font-size: 1.1rem; font-weight: 700;
 }
 .admin-stat span { color: var(--jaune); font-size: 1.6rem; }
+.compteur-geant { text-align: center; font-weight: 700; }
+.compteur-geant #compteur-total {
+  display: block;
+  font-size: 3.4rem;
+  line-height: 1.1;
+  margin-top: 6px;
+}
 .capture-carte {
   background: #fff; border-radius: 12px; padding: 16px 18px;
   margin-bottom: 14px; box-shadow: 0 4px 12px rgba(0,0,0,.06);

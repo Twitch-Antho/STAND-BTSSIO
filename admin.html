@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin — Captures du stand</title>
-  <link rel="stylesheet" href="css/style.css?v=3">
+  <link rel="stylesheet" href="css/style.css?v=4">
 </head>
 <body>
   <main class="admin" id="admin-contenu">
@@ -12,9 +12,12 @@
     <p class="sous">Page réservée à l'équipe. Liste des infos saisies sur <strong>cet appareil</strong>
        (tout est stocké en local, rien n'est envoyé sur Internet).</p>
 
-    <div class="admin-stat">
-      Personnes piégées sur cet appareil : <span id="total">0</span>
+    <div class="admin-stat compteur-geant">
+      😈 Personnes piégées (total) :<br>
+      <span id="compteur-total">0</span>
     </div>
+    <p class="sous">Captures actuellement enregistrées sur cet appareil :
+       <strong><span id="total">0</span></strong></p>
 
     <div class="admin-actions">
       <button class="btn-export" id="btn-export">⬇️ Exporter en fichier .js</button>
@@ -27,6 +30,6 @@
     <a class="lien-discret" href="#" id="btn-logout">🔓 Se déconnecter</a>
   </main>
 
-  <script src="js/admin.js?v=3"></script>
+  <script src="js/admin.js?v=4"></script>
 </body>
 </html>
