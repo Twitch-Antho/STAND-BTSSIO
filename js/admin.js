@@ -8,52 +8,24 @@
   "use strict";
 
   /* ============================================================
-     CONNEXION (accès réservé à l'équipe)
+     GARDE D'ACCÈS
      ------------------------------------------------------------
-     ⚠️ Protection légère : comme le site est 100% statique, ces
-     identifiants sont visibles dans le code source. C'est suffisant
-     pour un stand d'une journée, mais ce n'est pas une vraie
-     sécurité serveur.
+     On ne doit arriver ici qu'après être passé par login.html.
+     Sinon, redirection vers la page de connexion.
+     ⚠️ Protection légère : le site est 100% statique, donc
+     contournable via le code source. Suffisant pour un stand.
      ============================================================ */
-  var IDENTIFIANT = "groupe";
-  var MOT_DE_PASSE = "SISR2";
-
-  var login = document.getElementById("login");
-  var contenu = document.getElementById("admin-contenu");
-  var form = document.getElementById("login-form");
-  var erreur = document.getElementById("login-erreur");
-
-  function ouvrirAdmin() {
-    login.hidden = true;
-    contenu.hidden = false;
-    afficher();
+  if (sessionStorage.getItem("admin_ok") !== "1") {
+    window.location.replace("login.html");
+    return;
   }
-
-  // Déjà connecté pendant cette session du navigateur ?
-  if (sessionStorage.getItem("admin_ok") === "1") {
-    ouvrirAdmin();
-  }
-
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-    var u = document.getElementById("login-user").value.trim();
-    var p = document.getElementById("login-pass").value;
-    if (u === IDENTIFIANT && p === MOT_DE_PASSE) {
-      sessionStorage.setItem("admin_ok", "1");
-      erreur.hidden = true;
-      ouvrirAdmin();
-    } else {
-      erreur.hidden = false;
-      document.getElementById("login-pass").value = "";
-    }
-  });
 
   var btnLogout = document.getElementById("btn-logout");
   if (btnLogout) {
     btnLogout.addEventListener("click", function (e) {
       e.preventDefault();
       sessionStorage.removeItem("admin_ok");
-      location.reload();
+      window.location.href = "login.html";
     });
   }
 
@@ -133,5 +105,6 @@
 
   document.getElementById("btn-export").addEventListener("click", exporter);
   document.getElementById("btn-vider").addEventListener("click", vider);
-  // L'affichage des captures est déclenché après connexion (voir ouvrirAdmin).
+
+  afficher();
 })();

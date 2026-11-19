@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connexion — Espace équipe</title>
+  <link rel="stylesheet" href="css/style.css?v=3">
+</head>
+<body>
+  <div class="login-ecran">
+    <form id="login-form" class="login-carte" autocomplete="off">
+      <h1>🔒 Accès réservé</h1>
+      <p>Espace équipe du stand. Identifie-toi pour continuer.</p>
+
+      <label>Identifiant
+        <input type="text" id="login-user" placeholder="Identifiant" required>
+      </label>
+      <label>Mot de passe
+        <input type="password" id="login-pass" placeholder="Mot de passe" required>
+      </label>
+
+      <p id="login-erreur" class="login-erreur" hidden>❌ Identifiant ou mot de passe incorrect.</p>
+      <button type="submit" class="btn-login">Se connecter</button>
+
+      <a class="lien-discret" href="index.html">← Retour</a>
+    </form>
+  </div>
+
+  <script src="js/login.js?v=3"></script>
+</body>
+</html>

@@ -4,30 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin — Captures du stand</title>
-  <link rel="stylesheet" href="css/style.css?v=2">
+  <link rel="stylesheet" href="css/style.css?v=3">
 </head>
 <body>
-
-  <!-- Écran de connexion (affiché tant que l'équipe n'est pas identifiée) -->
-  <div id="login" class="login-ecran">
-    <form id="login-form" class="login-carte" autocomplete="off">
-      <h1>🔒 Accès réservé</h1>
-      <p>Espace équipe du stand. Identifie-toi pour continuer.</p>
-
-      <label>Identifiant
-        <input type="text" id="login-user" placeholder="Identifiant" required>
-      </label>
-      <label>Mot de passe
-        <input type="password" id="login-pass" placeholder="Mot de passe" required>
-      </label>
-
-      <p id="login-erreur" class="login-erreur" hidden>❌ Identifiant ou mot de passe incorrect.</p>
-      <button type="submit" class="btn-login">Se connecter</button>
-    </form>
-  </div>
-
-  <!-- Contenu admin (masqué tant que la connexion n'est pas validée) -->
-  <main class="admin" id="admin-contenu" hidden>
+  <main class="admin" id="admin-contenu">
     <h1>🗂️ Captures du stand</h1>
     <p class="sous">Page réservée à l'équipe. Liste des infos saisies sur <strong>cet appareil</strong>
        (tout est stocké en local, rien n'est envoyé sur Internet).</p>
@@ -47,6 +27,6 @@
     <a class="lien-discret" href="#" id="btn-logout">🔓 Se déconnecter</a>
   </main>
 
-  <script src="js/admin.js?v=2"></script>
+  <script src="js/admin.js?v=3"></script>
 </body>
 </html>
