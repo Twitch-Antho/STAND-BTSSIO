@@ -48,9 +48,12 @@ Supprime les lignes de données dans le Google Sheet (garde la ligne d'en-tête)
 
 Remets `window.URL_SHEET = "";` dans `js/config.js`.
 
-## En cas de souci
+## Liens
 
-- **Rien ne s'ajoute** : revérifie que *Qui a accès* = « Tout le monde », et que
+https://script.google.com/macros/s/AKfycbyxqvDu2KfPInld-GuYjKBz73NL-_jpLvM9B-eWPTukm4Cunp5EFPiyPNCQIt0izbI/exec
+AKfycbyxqvDu2KfPInld-GuYjKBz73NL-_jpLvM9B-eWPTukm4Cunp5EFPiyPNCQIt0izbI
+
+
   l'URL se termine bien par `/exec` (pas `/dev`).
 - **L'admin n'affiche rien** : après chaque modification du `Code.gs`, il faut
   **redéployer** (Déployer → Gérer les déploiements → modifier → nouvelle version).
