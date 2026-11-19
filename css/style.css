@@ -43,6 +43,17 @@ body {
 
 .appat { max-width: 520px; margin: 0 auto; padding-bottom: 40px; }
 
+.logo-ecole {
+  background: #fff;
+  text-align: center;
+  padding: 14px 16px;
+}
+.logo-ecole img {
+  height: 46px;
+  width: auto;
+  max-width: 85%;
+}
+
 .bandeau-urgence {
   background: var(--rouge);
   color: #fff;
