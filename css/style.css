@@ -232,6 +232,60 @@ body {
 .pied-piege { text-align: center; font-size: .82rem; opacity: .8; margin-top: 24px; }
 
 /* ============================================================
+   ÉCRAN DE CONNEXION ADMIN
+   ============================================================ */
+.login-ecran {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: linear-gradient(160deg, var(--bleu-nuit) 0%, #1b263b 100%);
+}
+.login-carte {
+  background: #fff;
+  border-radius: 18px;
+  padding: 30px 26px;
+  width: 100%;
+  max-width: 380px;
+  box-shadow: 0 16px 40px rgba(0,0,0,.3);
+  text-align: center;
+}
+.login-carte h1 { font-size: 1.5rem; margin-bottom: 6px; }
+.login-carte > p { color: #666; font-size: .9rem; margin-bottom: 20px; }
+.login-carte label {
+  display: block;
+  text-align: left;
+  font-weight: 600;
+  font-size: .85rem;
+  margin-bottom: 14px;
+  color: #333;
+}
+.login-carte input {
+  width: 100%;
+  margin-top: 5px;
+  padding: 12px 14px;
+  border: 2px solid #e0e4ec;
+  border-radius: 10px;
+  font-size: 1rem;
+}
+.login-carte input:focus { outline: none; border-color: var(--vert); }
+.login-erreur { color: var(--rouge); font-size: .85rem; margin-bottom: 12px; font-weight: 600; }
+.btn-login {
+  width: 100%;
+  background: var(--vert);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 14px;
+  font-size: 1rem;
+  font-weight: 800;
+  cursor: pointer;
+  margin-top: 4px;
+}
+.btn-login:active { transform: scale(.98); }
+
+/* ============================================================
    PAGE ADMIN
    ============================================================ */
 
