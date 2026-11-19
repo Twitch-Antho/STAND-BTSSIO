@@ -22,6 +22,21 @@ body {
   line-height: 1.5;
 }
 
+/* Accès admin invisible : zone cliquable en haut à droite.
+   Totalement transparente, non détectable (pas de curseur, pas
+   de focus clavier). Seule l'équipe sait qu'elle est là. */
+.acces-admin {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 60px;
+  height: 60px;
+  z-index: 9999;
+  background: transparent;
+  cursor: default;          /* pas de main au survol : reste invisible */
+  -webkit-tap-highlight-color: transparent;
+}
+
 /* ============================================================
    PAGE APPÂT
    ============================================================ */
